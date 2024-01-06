@@ -100,17 +100,33 @@ public class PhoneChat : MonoBehaviour
         if (intro)
         {
             // solutionButton.GetComponent<Button>().interactable = false;
-            LeanTween.moveLocalY(objectsToHide, 520, 0.01f).setEase(LeanTweenType.easeInOutBack);
-            onlyCountryInput.enabled = false;
-            inputManager.enabled = false;
-            // inputManagerObject.SetActive(false);
-            phoneHidden = false;
+            if (!LevelManager.instance.noPhone)
+            {
+                LeanTween.moveLocalY(objectsToHide, 520, 0.01f).setEase(LeanTweenType.easeInOutBack);
+                phoneHidden = false;
+                StartCoroutine(WaitBeforePhone());
+                inputManager.enabled = false;
+                onlyCountryInput.enabled = false;
 
-            StartCoroutine(WaitBeforePhone());
+            }
+            //else
+            //{
+            //    inputManager.enabled = true;
+
+            //}
+
+            // inputManagerObject.SetActive(false);
+            //StartCoroutine(WaitBeforePhone());
+
         }
         else
         {
             solutionScreen.SetActive(false);
+        }
+        if (LevelManager.instance.noPhone)
+        {
+            objectsToHide.SetActive(false);
+            hidePhoneButton.SetActive(false);
         }
     }
 
@@ -196,7 +212,6 @@ public class PhoneChat : MonoBehaviour
                 hidePhoneButtonText.text = "Handy?";
                 if (!end)
                 {
-                    //    Debug.Log("an");
                     inputManager.enabled = true;
                 }
                 else
@@ -213,17 +228,10 @@ public class PhoneChat : MonoBehaviour
                 LeanTween.alpha(blackFade.GetComponent<RectTransform>(), 0.0001f, .1f).setOnComplete(SoundManager.instance.PlayPhoneOnOff).setDelay(.6f);
                 phoneHidden = true;
                 hidePhoneButtonText.text = "Handy!";
-
-                //    onlyCountryInput.enabled = true;
-
-                // Debug.Log("an");
-                // Debug.Log("aus");
                 onlyCountryInput.enabled = false;
                 inputManager.enabled = false;
 
-                // inputManager.enabled = false;
                 newMessage.SetActive(false);
-                //    inputManagerObject.SetActive(false);
 
             }
         }
@@ -249,21 +257,47 @@ public class PhoneChat : MonoBehaviour
     }
     public void OnClickSolutionCheck()
     {
-        ButtonSound();
-        intro = false;
-        end = true;
-        solutionUI.intA = responses.introOver - 1;
-        //Debug.Log("inta" + solutionUI.intA);
-        solutionUI.auflösung = true;
-        solutionButton.SetActive(false);
-        solutionScreen.SetActive(true);
+        if (!LevelManager.instance.noPhone)
+        {
+            ButtonSound();
+            intro = false;
+            end = true;
+            solutionUI.intA = responses.introOver - 1;
+            //Debug.Log("inta" + solutionUI.intA);
+            solutionUI.auflösung = true;
+            solutionButton.SetActive(false);
+            solutionScreen.SetActive(true);
 
-        phoneHidden = false;
-        OnClickHidePhone();
+            phoneHidden = false;
+            OnClickHidePhone();
 
 
-        solutionUI.CompareSolutions();
-        solutionUI.AnswerManagerVoidCall(1);
+            solutionUI.CompareSolutions();
+            solutionUI.AnswerManagerVoidCall(1);
+        }
+        else
+        {
+
+            ButtonSound();
+            intro = false;
+            end = true;
+            solutionUI.intA = responses.introOver - 1;
+            //Debug.Log("inta" + solutionUI.intA);
+            solutionUI.auflösung = true;
+            solutionButton.SetActive(false);
+            solutionScreen.SetActive(true);
+
+            phoneHidden = false;
+            //OnClickHidePhone();
+            //inputManager.enabled = false;
+            onlyCountryInput.enabled = true;
+            inputManager.enabled = false;
+
+
+
+            solutionUI.CompareSolutions();
+            solutionUI.AnswerManagerVoidCall(1);
+        }
 
 
     }
@@ -441,15 +475,19 @@ public class PhoneChat : MonoBehaviour
     }
     public void MenuButtonActive(bool active)
     {
-      
+
         if (active)
         {
             mainMenuButton.GetComponent<Button>().interactable = true;
         }
         else
         {
-            restartButton.GetComponent<Button>().interactable = false;
             mainMenuButton.GetComponent<Button>().interactable = false;
+            if (end)
+            {
+                restartButton.GetComponent<Button>().interactable = false;
+
+            }
         }
     }
 }

@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 16542141}
   - component: {fileID: 16542140}
+  - component: {fileID: 16542142}
   m_Layer: 0
   m_Name: Level Manager
   m_TagString: Untagged
@@ -167,6 +168,8 @@ MonoBehaviour:
   - {fileID: 383439180}
   levelOpen: 0100000001
   fadeBlack: {fileID: 1796432003}
+  waves: {fileID: 0}
+  noPhone: 0
   allMessages: []
 --- !u!4 &16542141
 Transform:
@@ -184,6 +187,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &16542142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16542139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9c160a0ed6ea04e8c5321c5172f880, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &45855095
 GameObject:
   m_ObjectHideFlags: 0
@@ -296,9 +311,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1001321167}
   - {fileID: 1971220887}
   - {fileID: 429037230}
+  - {fileID: 1001321167}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -954,7 +969,7 @@ PrefabInstance:
       value: 'Aber sicher!  Los gehts zu unserem Endspurt.
 
         Im letzten Level
-        geht es um die Verteilung des  globales Co2.'
+        geht es um die Verteilung des globales Co2.'
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -978,15 +993,15 @@ PrefabInstance:
       value: "Das stimmt. Betrachten wir die beiden Kontinente aber genauer, dann
         stellen wir fest, dass Nordamerika nur einen Bruchteil an der Weltbev\xF6lkerung
         einnimmt und wesentlich kleiner ist, als Asien und Ozeanien. Im Verh\xE4ltnis
-        zur Bev\xF6lkerung haben Europa und Nordamerika die schlechteste CO2 Bilanz!"
+        zur Bev\xF6lkerung haben Europa und Nordamerika die schlechteste CO\xB2 Bilanz!"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[5]
-      value: "Schau mal, obwohl Europa und Nordamerika nicht ann\xE4hrend die H\xE4lfte
+      value: "Schau mal, obwohl Europa und Nordamerika nicht ann\xE4herend die H\xE4lfte
         der weltweiten Besiedlungsfl\xE4che und lediglich 15% der Bev\xF6lkerung
         ausmachen produzieren beide Kontinente zusammen die H\xE4lfte an weltweitem
-        CO2 Aussto\xDF!"
+        CO\xB2 Aussto\xDF!"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -1000,7 +1015,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[7]
-      value: "Sie wird als \u201CGreat Smog\u201D Bezeichnet, da London von einer
+      value: "Sie wird als \u201CGreat Smog\u201D bezeichnet, da London von einer
         dichten Smogwolke bedeckt war, die haupts\xE4chlich durch die Verwendung
         von Kohle als Brennstoff in der Industrie und im Haushalt verursacht wurde.
         Die Smogwolke war so dicht, dass die Sichtweite auf der Stra\xDFe auf nur
@@ -1266,7 +1281,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: button1ListContent.Array.data[0]
-      value: "F\xFCr wie viele Menschen steht ein Hexagon?"
+      value: "F\xFCr wie was steht ein Hexagon?"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -1298,7 +1313,7 @@ PrefabInstance:
         type: 3}
       propertyPath: button1ListContent.Array.data[6]
       value: "Das ist heftig! Da hatte ich ein anderes Bild im Kopf. Gerade einige
-        Gro\xDFst\xE4dte in Asien erinnere ich als Smog und Abgaslastig."
+        Gro\xDFst\xE4dte in Asien erinnere ich als Smog und abgaslastig."
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -1309,8 +1324,8 @@ PrefabInstance:
         type: 3}
       propertyPath: button1ListContent.Array.data[8]
       value: "Ok, das war tats\xE4chlich lange vor meiner Zeit, aber dennoch spannend.
-        Spannend aber auch, dass wir obwohl das \xFCber 70 Jahre her ist, noch immer
-        mit den selbsen Problemen zu k\xE4mpfen haben."
+        Spannend aber auch, dass wir, obwohl das \xFCber 70 Jahre her ist, noch immer
+        mit den selben Problemen zu k\xE4mpfen haben."
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -1661,6 +1676,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 580005256863783427, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_NumberOfSteps
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 580005257484273412, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: m_IsActive
@@ -1670,6 +1690,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -168.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 580005257484273414, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 580005257716189707, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -4516,16 +4541,16 @@ RectTransform:
   m_GameObject: {fileID: 348618190}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 30.152, y: 30.152, z: 30.152}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 775203000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 1701.0779, y: 1458.5757}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348618192
 MonoBehaviour:
@@ -4733,11 +4758,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 74640072232592415, guid: d040f63418438cd4c9ffe9df4f7b20d1,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 11.3689575
-      objectReference: {fileID: 0}
     - target: {fileID: 150870772452310227, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
       propertyPath: m_RootOrder
@@ -4826,6 +4846,11 @@ PrefabInstance:
     - target: {fileID: 1132095308305322799, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150959111794754702, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1359700853582651766, guid: d040f63418438cd4c9ffe9df4f7b20d1,
@@ -4968,15 +4993,55 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3450929570233424836, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_NumberOfSteps
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450929570438349693, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450929570438349694, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450929570438349695, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450929570464730299, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450929570619557569, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450929570619557571, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3450929570689498205, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 43.68
       objectReference: {fileID: 0}
+    - target: {fileID: 3450929570747189406, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3450929570794930261, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.472908
+      value: -1.4729004
       objectReference: {fileID: 0}
     - target: {fileID: 3450929570794930261, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
@@ -4990,8 +5055,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450929570987264972, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450929570987264972, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450929570987264972, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -82.9
+      value: -98.4
       objectReference: {fileID: 0}
     - target: {fileID: 3450929570987264979, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
@@ -5249,8 +5324,8 @@ PrefabInstance:
     - target: {fileID: 3450929571634505541, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
       propertyPath: npcButton2List.Array.data[0]
-      value: Alles klar! Diesen Dialog kannst du jederzeit mit einem Klick auf das
-        Handy im Hauptmenue erneut nachlesen. Klicke gleich direkt ins erste Level.
+      value: "Alles klar! Diesen Dialog kannst du jederzeit mit einem Klick auf das
+        Handy im Hauptmen\xFC erneut nachlesen. Klicke gleich direkt ins erste Level."
       objectReference: {fileID: 0}
     - target: {fileID: 3450929571634505541, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
@@ -5503,7 +5578,7 @@ PrefabInstance:
     - target: {fileID: 3450929571634505543, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3450929571634505543, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
@@ -5842,11 +5917,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3450929571994352046, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3450929571994352046, guid: d040f63418438cd4c9ffe9df4f7b20d1,
-        type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
@@ -5854,6 +5924,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709455913370484487, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3900978652025741685, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
@@ -5925,6 +6000,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -162.933
       objectReference: {fileID: 0}
+    - target: {fileID: 4223839260024865470, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4649004849376986661, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
       propertyPath: m_RootOrder
@@ -5935,10 +6015,20 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5623252720698258638, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5954808288734555675, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7170182755687461230, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7250152884679789387, guid: d040f63418438cd4c9ffe9df4f7b20d1,
         type: 3}
@@ -6008,7 +6098,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 74132575}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &429037231
 MonoBehaviour:
@@ -6499,7 +6589,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[3]
-      value: Dann schauen wir doch mal auf deine Ergebnis!
+      value: Dann schauen wir doch mal auf deine Ergebnisse!
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -6529,14 +6619,14 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[7]
-      value: "Ja, doch daf\xFCr gibt es einige Hinderungsgr\xFCnde.\nZum beispiel
+      value: "Ja, doch daf\xFCr gibt es einige Hinderungsgr\xFCnde.\nZum Beispiel
         sind Fluchtrouten nach Europa sehr teuer.\nUnter anderem, weil sie illegalisiert
         sind. \nNicht jeder Mensch kann sich diese Flucht leisten."
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[8]
-      value: "Oft wird entlang der Fluchtroute unter menschenunw\xFCrdigen bedingungen
+      value: "Oft wird entlang der Fluchtroute unter menschenunw\xFCrdigen Bedingungen
         gearbeitet, um ein St\xFCckchen weiterzukommen. Von diesem Geld zahlen die
         Menschen gerade so ihre Unterkunft und Essen \u2026 Sofern du deinen Lohn
         auch wirklich bekommst."
@@ -6589,10 +6679,10 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[11]
-      value: "Nun Alleine die europ\xE4ische Grenzschutz-Einrichtung Frontex, die
+      value: "Nun alleine die europ\xE4ische Grenzschutz-Einrichtung Frontex, die
         zum Beispiel mit illegalen Pushback-Aktionen im Mittelmeer immer wieder in
         den Schlagzeilen ist, kostet Europa j\xE4hrlich \xFCber 5 Milliarden Euro.
-        Ihre Hauptaufgabe ist es, Flucht bereits an den Grenzen Europas abzuwehren.
+        \nIhre Hauptaufgabe ist es, Flucht bereits an den Grenzen Europas abzuwehren.
         Dazu arbeitet sie beispielsweise mit lybischen S\xF6ldnern zusammen."
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
@@ -6620,8 +6710,186 @@ PrefabInstance:
       value: "Im Prinzip hast du das Wesentliche schon selbst gesagt.\nUnsere Berichterstattung
         in Europa ist sehr stark populistisch aufgeladen. Dabei wird stark gegen
         Gefl\xFCchtete als angebliche Ursache sozialer Probleme in Deutschland gehetzt.
-        Da diese Hetze viel Platz in unseren Medien bekommt und Flucht als Bedrohungszenario
-        gezeichnet wird, wirkt das Thema auf Europa Bezogen viel viel gr\xF6\xDFer\u2026"
+        Da diese Hetze viel Platz in unseren Medien bekommt und Flucht als Elf Jahre
+        lang wurde um den Zugriff auf die\r\nBodensch\xE4tze und die damit verbundene
+        Macht gek\xE4mpft. Vor allem europ\xE4ische Konzerne kauften die wertvollen
+        Steine und finanzierten damit die Waffenk\xE4ufer aller Kriegsparteien.\r\n\r\n[Zur\xFCck
+        zum Spiel] OR [Mehr zur Verteilung]\r\nPlayer\r\nUnd das wurde einfach so
+        geduldet?\r\n\r\nNPC3\r\nZum Gl\xFCck nicht! Es formierte sich ein global
+        sichtbarer Protest.\r\nTats\xE4chlich f\xFChrte diese Skandalisierung durch
+        zivilgesellschaftliche Akteurinnen zu einem Verbot und dadurch zu einem starken
+        Ru\u0308ckgang des Handels mit Konfliktdiamanten.\r\nAn den ungerechten Verh\xE4ltnissen
+        und der Ausbeutung der Bodensch\xE4tze zugunsten Weniger aber hat sich nichts
+        ge\xE4ndert.\r\n\r\n[Zur\xFCck zum Spiel] OR [Weshalb nicht?]\r\nPlayer\r\nWeshalb
+        nicht?\r\n\r\nNPC3\r\nEs gibt nach wie vor eine starke Nachfrage nach diesen
+        Bodensch\xE4tzen, deshalb vergibt die sierraleonische Regierung immernoch
+        bereitwillig F\xF6rderlizenzen an ausl\xE4ndische Unternehmen, ohne sie dazu
+        zu verpflichten, auf die Grundbedu\u0308rfnisse der lokalen Bev\xF6lkerung
+        Ru\u0308cksicht zu nehmen. Die Wohlstandsverteilung zwischen Nord und S\xFCd
+        wird so immer weiter versch\xE4rft.\r\n\r\n[Zur\xFCck zum Spiel] OR [Mehr
+        zur Verteilung]\r\nPlayer\r\nDas ist doch furchtbar!\r\nGerade die Arbeit
+        in Diamantminen ist mega gesundheitssch\xE4digend und menschenunw\xFCrdig!\r\nWie
+        kann sowas geduldet werden?\r\n\r\nNPC3\r\nGute Frage. Es hat viele Gr\xFCnde,
+        aber ein gewichtiger Grund ist, dass es f\xFCr uns im globalen Norden auch
+        sehr bequem ist.\r\nDie Art, wie unsere globale Wirtschaft organisiert ist,
+        bringt uns im globalen Norden einen realtiven Wohlstand und technischen Fortschritt.\r\nAm
+        Ende sind jedoch zentrale Bodensch\xE4tze und Rohstoffe, die wir gerade f\xFCr
+        unsere rasant wachsenden Technologie brauchen konflikthaft.\r\n\r\n[Zur\xFCck
+        zum Spiel] OR [Wie k\xF6nnen wirs \xE4ndern?]\r\nPlayer\r\nGut, na klar m\xF6chte
+        ich gerne mein Handy und meinen PC haben.\r\nAber es muss doch eine M\xF6glichkeit
+        geben, diese Verh\xE4ltnisse zu ver\xE4ndern.\r\n\r\nNPC3\r\nKlar. Ein guter
+        Schritt zu einer Ver\xE4nderung ist es, wenn sich die Arbeiterinnen im globalen
+        Norden nicht lediglich f\xFCr ihre Arbeitsbedingungen einsetzen,\r\nsondern
+        sich f\xFCr Verbesserungen f\xFCr alle an der Produktion beteiligten Menschen
+        weltweit einsetzen.\r\n\r\n[Zur\xFCck zum Spiel] OR [Das ist schwierig!]\r\nPlayer\r\nOhh
+        jehhh, ich krieg meine Kolleginnen kaum zu einen Streik f\xFCr ihre eigenen
+        Arbeitsverh\xE4ltnisse auf die Stra\xDFe!\r\n\r\nNPC3\r\nNa, lass den Kopf
+        nicht h\xE4ngen.\r\nNiemand sagt, dass es einfach ist.\r\nAber schau dir
+        zum Beispiel das Lieferkettengesetz an, dass ein riesen Erfolg deutscher
+        Gewerkschaften ist.\r\nEin Gesetz, das Unternehmen dazu verpflichtet, Verantwortung
+        f\xFCr die Arbeitsbedingungen und Umweltauswirkungen in ihrer gesamten Lieferkette
+        zu \xFCbernehmen. Das bedeutet, dass Unternehmen sicherstellen m\xFCssen,
+        dass auch ihre Zulieferer und Subunternehmer die Menschenrechte achten, Umweltstandards
+        einhalten und Arbeitsbedingungen garantieren, die den internationalen Standards
+        entsprechen.\r\n\r\n[Zur\xFCck zum Spiel]\r\nPlayer\r\nDas stimmt. Das ist
+        ein Anfang.\r\n\r\nNPC4\r\nAber die Art wie wir wirtschaften hat noch ganz
+        andere Auswirkungen.\r\nIch habe dir das n\xE4chste Level freigeschaltet,
+        du weist ja schon wie es geht!\r\n\r\nLevel 3\r\nEinstieg\r\nNPC4\r\nIn diesem
+        Level geht es um Weltweite Fluchtbewegungen.\r\nF\xFCr dieses Level habe
+        ich die Zahlen der Geflu\u0308chteten und Asylantragstellerinnen, die in
+        andere L\xE4nder der\r\neinzelnen Kontinente fliehen zur Grundlage genommen.
+        Nicht mit gerechnet ist die gro\xDFe Zahl der Binnenfl\xFCchtenden.\r\nDie
+        Bev\xF6lkerungs- und Reichtumsverteilung findest du wieder im Hintergrund.\r\nBild\r\n\r\n[Zum
+        Spiel] OR [Wof\xFCr steht ein Sechseck?]\r\nPlayer\r\nF\xFCr wie viele Menschen
+        steht diesmal ein Sechseck?\r\n\r\nNPC\r\nJedes rote Sechseck Bild steht
+        f\xFCr\r\n1,2 Mio gefl\xFCchtete Menschen.\r\n\r\n[Zum Spiel]\r\nAufl\xF6sung/
+        Klick auf Pr\xFCfen\r\n!Menuebutton wird inaktiv\r\n\r\nNPC\r\nDu bist schon
+        fertig? Super!\r\nIch blende dir zu deiner L\xF6sung die richtige Verteilung
+        ein.\r\nDie hellen Kreisteile sind deine Eingabe, die etwas dunkleren zeigen
+        die richtige L\xF6sung.\r\nBild\r\nSchaue dir das Ergebnis in Ruhe an.\r\n\r\n[Weiter]\r\nPlayer\r\nIch
+        bin gespannt?\r\n\r\nNPC\r\nUnd wie immer: Sobald du einen \xDCberblick hast,
+        Schreib uns hier im Chat und wir l\xF6sen gemeinsam auf\r\n\r\n!Handy schiebt
+        Hoch\r\n\r\n! Spieler klickt auf Handy\r\n\r\n[Zur Aufl\xF6sung]\r\nPlayer\r\nIch
+        bin fertig!\r\n\r\nNPC3\r\nDann schauen wir doch mal auf deine Ergebnis!\r\n\r\n[Ok!]\r\nPlayer\r\nOk!\r\n\r\nOption
+        1: Zahlen f\xFCr Europa genau getroffen\r\nNPC3\r\nLass mich deine Eingaben
+        vergleichen\u2026\r\nWow!\r\nGenau ins Schwarze getroffen!\r\nDu bist ein
+        echter Sch\xE4tzmeister!\r\nBild Emoji Partyt\xFCte\r\n\r\nOption 2: Abweichung
+        von +/-1\r\nNPC3\r\nLass mich deine Eingaben vergleichen\u2026\r\nWow! Du
+        bist verdammt dicht an dem richtigen Ergebnis!\r\nBild Emoji Thumbs up\r\n\r\nOption
+        3: Zu viel\r\nNPC3\r\nDa hast du deutlich mehr Gefl\xFCchtete in Europa verortet!\r\nDie
+        Debatte \xFCber Migration und Gefl\xFCchtete ist gerade im letzten Jahrzehnt
+        wurde vielerorts nicht entlang von Fakten gef\xFChrt.\r\nDas f\xFChrt zu
+        einer Wahrnehmungsverschiebung.\r\n\r\nOption 4: Zu wenig\r\nNPC3\r\nDu hast
+        deutlich weniger Gefl\xFCchtete gesch\xE4tzt, als tats\xE4chlich in europ\xE4ische
+        L\xE4nder fliehen.\r\nDie Kriege der letzten Jahre haben insbesondere viele
+        Gefl\xFCchtete aus Syrien \xFCber die gef\xE4hrlichen Land- und Seeweg nach
+        Europa gef\xFChrt.\r\n\r\n[Weiter]\r\nPlayer\r\nWow - ich h\xE4tte tats\xE4chlich
+        gedacht, dass die reichen L\xE4nder mehr Gefl\xFCchtete aufnehmen. Immerhin
+        ist dieses Thema auch sehr prominent in unserer Berichterstattung. Sind die
+        Regionen nicht wesentlich attraktiver f\xFCr Fliehende?\r\n\r\nNPC4\r\nAnders
+        als z.B., ein Umzug von Deutschland nach Schweden ist Flucht eine sehr sehr
+        schwierige Entscheidung und f\xFCr die meisten Menschen der letzte Ausweg
+        vor Krieg, Zerst\xF6rung und Verfolgung.\r\nViele Gefl\xFCchtete bleiben
+        in der N\xE4he ihrer Heimatl\xE4nder und suchen Zuflucht in den angrenzenden
+        L\xE4ndern, die oft selbst mit wirtschaftlichen und politischen Herausforderungen
+        konfrontiert sind.\r\n\r\n[Ok das reicht mir] OR [Wieso?]\r\nPlayer\r\nWieso
+        fliehen Menschen von einer Konfliktregion in die n\xE4chste?\r\n\r\nNPC4\r\nF\xFCr
+        alle Menschen ist die Flucht eine absolute Notfallsituation.\r\nIn einer
+        Nebel- und Nachtaktion ist die n\xE4chste Grenze das erste Ziel.\r\nDamit
+        ist die erste Bedrohung abgewehrt.\r\n\r\n[Ok das reicht mir] OR [Nur die
+        erste?]\r\nPlayer\r\nNur die erste?\r\n\r\nNPC3\r\nLeider bleibt die Flucht
+        von Land zu Land f\xFCr viele Menschen eine andauernde Wanderbewegung von
+        einer Gefahrensituation zur n\xE4chsten.\r\nGerade die von unserer Wirtschaftsweise
+        mit ges\xE4ten Konflikte um Rohstoffe und Ressourcen gestalten ganze Regionen
+        zu unsicheren L\xE4ndern.\r\n\r\n[Ok das reicht mir] OR [Warum dann nicht
+        Europa?]\r\nPlayer\r\nDas hei\xDFt die Menschen stellen sich immer wieder
+        auf eine komplett neue Situation ein und sind nie in Sicherheit. W\xE4re
+        das dann nicht naheliegend nach Europa zu fl\xFCchten, wo die Lebensumst\xE4nde
+        stabiler sind?\r\nNPC4\r\nJa, doch daf\xFCr gibt es einige Hinderungsgr\xFCnde.\r\nZum
+        beispiel sind Fluchtrouten nach Europa sehr teuer.\r\nUnter anderem, weil
+        sie illegalisiert sind.\r\nNicht jeder Mensch kann sich diese Flucht leisten.\r\n\r\nPlayer\r\nOk
+        und wie schaffen es dann doch einige diese Flucht zu bewerkstelligen?\r\n\r\nNPC\r\nOft
+        wird entlang der Fluchtroute unter menschenunw\xFCrdigen bedingungen gearbeitet,
+        um ein St\xFCckchen weiterzukommen. Von diesem Geld zahlen die Menschen gerade
+        so ihre Unterkunft und Essen \u2026 Sofern du deinen Lohn auch wirklich bekommst.\r\n\r\n[Ok
+        das reicht mir] OR [Warum nicht fliegen?]\r\nPlayer\r\nAber wieso setzen
+        sich die Menschen nicht einfach in ein Flugzeug nach Europa?\r\n\r\nNPC4\r\nHier
+        sind wir bei den Effekten europ\xE4ischer Abschottungspolitik.\r\n\r\n[I]\r\nDie
+        Fluggesellschaften nehmen keine Menschen ohne g\xFCltige Aufenthaltspapiere
+        mit, da sie im Zweifel deren R\xFCckreise selbst veranlassen und finanzieren
+        m\xFCssten.\r\nAufenthaltspapiere in Krisenregionen zu beschaffen ist unm\xF6glich.\r\nHinzu
+        kommt, dass viele L\xE4nder trotz Kriegen und Menschenrechtsverletzungen
+        als sichere Herkunftsl\xE4nder gelten, wie beispielsweise Afghanistan.\r\n\r\nPlayer\r\nW\xFCtender
+        Emoji\r\n\r\nNPC3\r\nJap. Anstelle Flucht so menschenw\xFCrdig, wie m\xF6glich
+        zu gestalten, lassen wir als Europa es uns ganz sch\xF6n kosten, Menschen
+        eine sichere Flucht zu verwehren.\r\n\r\n[Ok das reicht mir] OR [Wie meinst
+        du das?]\r\nPlayer\r\nWas meinst du damit genau?\r\n\r\nNPC4\r\nNun Alleine
+        die europ\xE4ische Grenzschutz-Einrichtung Frontex, die zum Beispiel mit
+        illegalen Pushback-Aktionen im Mittelmeer immer wieder in den Schlagzeilen
+        ist, kostet Europa j\xE4hrlich \xFCber 5 Milliarden Euro.\r\nIhre Hauptaufgabe
+        ist es, Flucht bereits an den Grenzen Europas abzuwehren.Dazu arbeitet sie
+        beispielsweise mit lybischen S\xF6ldnern zusammen.\r\n\r\n[Ok das reicht
+        mir] OR [Push-Backs?]\r\nPlayer\r\nWas meinst du mit Pushback-Aktionen?\r\n\r\nNPC4\r\nOhh
+        entschuldige, wie doof von mir.\r\n\u201CPushbacks\u201D werden Ma\xDFnahmen
+        von Grenzschutzbeh\xF6rden oder anderen staatlichen Stellen genannt, bei
+        denen Schutzsuchende oder Migrant*innen ohne individuelle Pr\xFCfung ihres
+        Asyl- oder Schutzbedarfs an der Grenze zur\xFCckgewiesen werden. So wird
+        verhindert, dass die Menschen \xFCberhaupt einen Asylantrag stellen k\xF6nnen.\r\n\r\nPlayer\r\nErschrockenes
+        Emoji\r\n\r\nNPC3\r\nDiese Praxis steht massiv im Widerspruch zu internationalen
+        Menschenrechtsstandards und dem Recht auf Asyl.\r\nIn letzter Konsequenz
+        bedeutet es, dass Frontex beispielsweise Schlauchboote mit fl\xFCchtenden
+        Menschen mit St\xE4ben zur\xFCck an die nordafrikanische Grenze treibt. Dabei
+        wird in Kauf genommen, dass die Boote kentern und Menschen ertrinken.\r\n\r\n[Ok
+        das reicht mir] OR [Das ist grausam!]\r\nPlayer\r\nW\xFCtendes Emoji\r\nDas
+        ist grausam.\r\nAber wie kommt es, dass wir so ein verschobenes Bild von
+        weltweiten Fluchtbewegungen haben?\r\n\r\nNPC4\r\nIm Prinzip hast du das
+        Wesentliche schon selbst gesagt.\r\nUnsere Berichterstattung in Europa ist
+        sehr stark populistisch aufgeladen. Dabei wird stark gegen Gefl\xFCchtete
+        als angebliche Ursache sozialer Probleme in Deutschland gehetzt. Da diese
+        Hetze viel Platz in unseren Medien bekommt und Flucht als Bedrohungszenario
+        gezeichnet wird, wirkt das Thema auf Europa Bezogen viel viel gr\xF6\xDFer\u2026\r\n\r\nNPC3\r\nGenau,
+        die lokalen Gruppen von Seebr\xFCcke und Seebr\xFCcke als Gesamtorganisation
+        versuchen sowohl diese Bild zu korrigieren, als auch gleichzeitig das Vorgehen
+        europ\xE4ischer Grenzschutzbeh\xF6rden zu kritisieren.\r\nIhr Ziel sind sichere
+        Fluchtrouten und H\xE4fen.\r\n\r\n[Zum Spiel]\r\nPlayer\r\nOk danke, dann
+        habe ich erstmal einen guten \xDCberblick und erste Ansatzpunkte!\r\n\r\nNPC1\r\nOk
+        klingt, als w\xE4rst du bereit f\xFCr das letzte Level!\r\n\r\nLevel 4\r\n[\u2026]
+        OR [Nordamerika und Asien]\r\nPlayer\r\nWow der\r\nAussto\xDF von Asien und
+        Nordamerika ist schon gravierend.\r\n\r\nNPC1\r\nDas stimmt. Betrachten wir
+        die beiden Kontinente aber genauer, dann stellen wir fest, dass Nordamerika
+        nur einen Bruchteil an der Weltbev\xF6lkerung einnimmt und wesentlich kleiner
+        ist, als Asien und Ozeanien.\r\nIm Verh\xE4ltnis zur Bev\xF6lkerung haben
+        Europa und Nordamerika die schlechteste CO2 Bilanz!\r\n\r\nNPC2\r\nSchau
+        mal, obwohl Europa und Nordamerika nicht ann\xE4hrend die H\xE4lfte der weltweiten
+        Besiedlungsfl\xE4che und lediglich 15% der Bev\xF6lkerung ausmachen produzieren
+        beide Kontinente zusammen die H\xE4lfte an weltweitem CO2 Aussto\xDF!\r\n\r\n[\u2026]
+        OR [Heftig]\r\nPlayer\r\nDas ist heftig!\r\nDa hatte ich ein anderes Bild
+        im Kopf. Gerade einige Gro\xDFst\xE4dte in Asien erinnere ich als Smog und
+        Abgaslastig.\r\n\r\nNPC1\r\nStimmt, die Bilder kenne ich auch. Das sind aufnahmen
+        von Bev\xF6lkerungs- und Industriedichten Megast\xE4dten, die wir in dieser
+        Gr\xF6\xDFe in Europa nicht kennen. Aber so sehr unterscheiden sich die Probleme
+        nicht von den unserer Gro\xDFst\xE4dte.\r\nWusstest du, dass es bereits 1952
+        in London eine sehr schwere Abgaskrise gab?\r\n\r\n[Was war da genau los?]\r\nPlayer\r\n\u2026
+        nicht wirklich!\r\nNPC1\r\nSie wird als \u201CGreat Smog\u201D Bezeichnet,
+        da London von einer dichten Smogwolke bedeckt war, die haupts\xE4chlich durch
+        die Verwendung von Kohle als Brennstoff in der Industrie und im Haushalt
+        verursacht wurde. Die Smogwolke war so dicht, dass die Sichtweite auf der
+        Stra\xDFe auf nur wenige Meter reduziert war.\r\nEs wird gesch\xE4tzt, dass
+        w\xE4hrend des \u201CGreat Smog\u201D in London zwischen dem 5. und 9. Dezember
+        1952 etwa 4.000 Menschen aufgrund der Luftverschmutzung ums Leben gekommen
+        sind.\r\n\r\n[\u2026] OR [Heftig]\r\nPlayer\r\nOk, das war tats\xE4chlich
+        lange vor meiner Zeit, aber dennoch spannend. Spannend aber auch, dass wir
+        obwohl das \xFCber 70 Jahre her ist, noch immer mit den selbsen Problemen
+        zu k\xE4mpfen haben.\r\n\r\nNPC\r\nJa! Das stimmt.\r\n\r\nAuswertung\r\nPlayer\r\nZusammenfassend
+        hat Europa als Kolonialmacht Strukturen des Handels aufgebaut, die noch heute
+        vor allem den Unternehmen im globalen Norden zu mehr Reichtum verhelfen.
+        Die Produktionsbedingungen sind zum Teil menschenunw\xFCrdig und haben gravierende
+        Folgen f\xFCr Mensch und Umwelt. Sie sch\xFCren Konflikte zwischen L\xE4ndern
+        des globalen S\xFCdens. Wenn die Menschen sich jedoch auf den Weg machen
+        und fliehen, verwehren wir ihnen ihr Recht auf Asyl.\r\n\r\nNPC1\r\nTreffend
+        formuliert.\r\n\r\nPlayer\r\nDas ist doch gequirlte Kackschei\xDFe!\r\n\r\nNPC\r\nDa
+        hast du recht.\r\n\r\nPlayer gezeichnet wird, wirkt das Thema auf Europa
+        Bezogen viel viel gr\xF6\xDFer\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -6674,7 +6942,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: button1ListButton.Array.data[6]
-      value: Nur die erste?
+      value: Nur die Erste?
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -6822,7 +7090,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: button1ListContent.Array.data[6]
-      value: Nur die erste?
+      value: Nur dieErste?
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -7147,6 +7415,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 580005256863783427, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_NumberOfSteps
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 580005257484273412, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: m_IsActive
@@ -7156,6 +7429,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -168.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 580005257484273414, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 580005257716189707, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -9272,6 +9550,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5875dae847b16b642bf42d6d9eb60fea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &574476819 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8236005759105580935, guid: d040f63418438cd4c9ffe9df4f7b20d1,
+    type: 3}
+  m_PrefabInstance: {fileID: 390682757}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &625142140 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7794566916953583559, guid: 88a81022d2810fb4a88437b898f64397,
@@ -9396,9 +9680,9 @@ RectTransform:
   m_Father: {fileID: 1001321167}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 208}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &707256460
@@ -9419,6 +9703,231 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 143264111}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &748594472
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 748594473}
+  - component: {fileID: 748594476}
+  - component: {fileID: 748594475}
+  - component: {fileID: 748594474}
+  m_Layer: 5
+  m_Name: Black BG (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &748594473
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748594472}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.00020599365}
+  m_LocalScale: {x: 3.1034303, y: 4.5667944, z: 0.87787306}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 574476819}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -3.7809753, y: -23.516098}
+  m_SizeDelta: {x: 84.5047, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &748594474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748594472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.4745098}
+  m_EffectDistance: {x: 1.47, y: -0.4}
+  m_UseGraphicAlpha: 1
+--- !u!114 &748594475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748594472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.40000004, g: 0.40000004, b: 0.40000004, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Texture: {fileID: 2800000, guid: 6fe700b24da8f034b84a30caf67678f8, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &748594476
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 748594472}
+  m_CullTransparentMesh: 1
+--- !u!1 &772461633
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 772461634}
+  - component: {fileID: 772461636}
+  - component: {fileID: 772461635}
+  m_Layer: 0
+  m_Name: 'Daten von '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &772461634
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772461633}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.90610486, y: 0.90610486, z: 4.469057}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 775203000}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -295, y: 22}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &772461635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772461633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: Daten von Januar 2023
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 497511c3ccb3b5f4a99ca87b9626540d, type: 2}
+  m_sharedMaterial: {fileID: -613169733710049033, guid: 497511c3ccb3b5f4a99ca87b9626540d,
+    type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 15
+  m_fontSizeBase: 15
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 63.93054, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &772461636
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772461633}
+  m_CullTransparentMesh: 1
 --- !u!1 &773190229
 GameObject:
   m_ObjectHideFlags: 0
@@ -9551,6 +10060,7 @@ RectTransform:
   - {fileID: 348618191}
   - {fileID: 1955180058}
   - {fileID: 878158771}
+  - {fileID: 772461634}
   m_Father: {fileID: 1971220887}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11311,7 +11821,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[5]
-      value: Dann schauen wir doch mal auf deine Ergebnis!
+      value: Dann schauen wir doch mal auf dein Ergebnis!
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -11319,12 +11829,12 @@ PrefabInstance:
       value: "Eine g\xE4ngige Antwort auf die BIP-Unterschiede w\xE4re, dass die
         L\xE4nder im globalen Norden eine st\xE4rker entwickelte Wirtschaft haben,
         als die L\xE4nder des globalen S\xFCden. \r\nDu wirkst auf mich jedoch nicht
-        wie jemand, der sich mit einer 0815 Antwort zufrieden gibt, oder?"
+        wie jemand, der sich mit einer 0815 Antwort zufriedengibt, oder?"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[7]
-      value: "Sehr sch\xF6n, dachte ichs mir doch, dass du dich nicht so leicht abspei\xDFen
+      value: "Sehr sch\xF6n, dachte ichs mir doch, dass du dich nicht so leicht abspeisen
         l\xE4sst!"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
@@ -11442,7 +11952,7 @@ PrefabInstance:
       value: "Gute Frage. Es hat viele Gr\xFCnde, aber ein gewichtiger Grund ist,
         dass es f\xFCr uns im globalen Norden auch sehr bequem ist.\n Die Art, wie
         unsere globale Wirtschaft organisiert ist, bringt uns im globalen Norden
-        einen realtiven Wohlstand und technischen Fortschritt. Am Ende sind jedoch
+        einen relativen Wohlstand und technischen Fortschritt. Am Ende sind jedoch
         zentrale Bodensch\xE4tze und Rohstoffe, die wir gerade f\xFCr unsere rasant
         wachsenden Technologie brauchen konflikthaft."
       objectReference: {fileID: 0}
@@ -11469,7 +11979,7 @@ PrefabInstance:
         type: 3}
       propertyPath: npcButton1List.Array.data[21]
       value: "Aber die Art wie wir wirtschaften hat noch ganz andere Auswirkungen.\nIch
-        habe dir das n\xE4chste Level freigeschaltet, du weist ja schon wie es geht!"
+        habe dir das n\xE4chste Level freigeschaltet, du weisst ja schon wie es geht!"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -11579,7 +12089,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: button1ListButton.Array.data[12]
-      value: "Hei\xDFt Konret?"
+      value: "Hei\xDFt Konkret?"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -11589,7 +12099,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: button1ListButton.Array.data[14]
-      value: Wie kommts?
+      value: Wie kommt's?
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -11866,7 +12376,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: button1ListContent.Array.data[20]
-      value: "Ohh jehhh, ich krieg meine Kolleginnen kaum zu einen Streik f\xFCr
+      value: "Ohh jehhh, ich krieg meine Kolleginnen kaum zu einem Streik f\xFCr
         ihre eigenen Arbeitsverh\xE4ltnisse auf die Stra\xDFe!"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
@@ -12059,6 +12569,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 580005256863783427, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_NumberOfSteps
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 580005257110556029, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: m_ScrollSensitivity
@@ -12073,6 +12588,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -168.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 580005257484273414, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 580005257716189707, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -12407,12 +12927,12 @@ PrefabInstance:
     - target: {fileID: 2875756840553517468, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -311.9
+      value: -358
       objectReference: {fileID: 0}
     - target: {fileID: 2875756840553517468, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -193.7
+      value: -183
       objectReference: {fileID: 0}
     - target: {fileID: 2875756840591876433, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -15749,6 +16269,11 @@ PrefabInstance:
       propertyPath: m_Value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 580005256863783427, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_NumberOfSteps
+      value: 100000
+      objectReference: {fileID: 0}
     - target: {fileID: 580005257484273412, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: m_IsActive
@@ -15758,6 +16283,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -168.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 580005257484273414, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 580005257716189707, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -18439,6 +18969,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 80fa69b9a43ed1a42b4f4376b6560461, type: 2}
+    - target: {fileID: 9024001289618147506, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9038372230422543128, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -19369,7 +19904,7 @@ Transform:
   m_Children:
   - {fileID: 775203000}
   m_Father: {fileID: 74132575}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2000032408 stripped
 GameObject:
@@ -20057,7 +20592,7 @@ PrefabInstance:
       value: "Du hast sicherlich gemerkt, dass unsere Unterhaltung hier auf das Handy
         beschr\xE4nkt ist. \nWenn du hier im Chat mal etwas nachlesen m\xF6chtest,
         klicke einfach auf den Handybutton und scrolle dich nach oben. Durch erneutes
-        Klicken kannst du es bei bedarf wieder ablegen."
+        Klicken kannst du es bei Bedarf wieder ablegen."
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -20084,7 +20619,7 @@ PrefabInstance:
       value: "Du bist schon fertig? Super!\nIch blende dir zu deiner L\xF6sung die
         richtige Verteilung ein. Die hellblauen Kreisteile sind deine Eingabe, die
         etwas dunkleren zeigen die richtige L\xF6sung.\nSchaue dir das Ergebnis in
-        Ruhe an und klicke wenn du fertig bist auf das Handy."
+        Ruhe an und klicke, wenn du fertig bist auf das Handy."
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
@@ -20108,14 +20643,14 @@ PrefabInstance:
       propertyPath: npcButton1List.Array.data[8]
       value: "Stimmt und das m\xF6chten wir gerade auch nicht. \nVon Europa haben
         wir aber oft mehr und vielf\xE4ltigere Informationen zur Verf\xFCgung als
-        von anderen Kontinenten. Das machen wir uns ein bisschen zu nutze. Wollen
+        von anderen Kontinenten. Das machen wir uns ein bisschen zu Nutze. Wollen
         wir uns anschauen, wie genau deine Sch\xE4tzung ist?"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[9]
       value: "Ich kann dir zumindest einige Aspekte zusammenstellen. Auch wenn Asien,
-        Lateinamerika und Afrika keine homogene Regionen sind und sehr unterschiedliche
+        Lateinamerika und Afrika keine homogenen Regionen sind und sehr unterschiedliche
         L\xE4nder und Kulturen umfassen, haben sie einige Gemeinsamkeiten, hast du
         eine Idee?"
       objectReference: {fileID: 0}
@@ -20165,9 +20700,9 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: npcButton1List.Array.data[12]
-      value: "Stimmt! Das ist ein Zusammenhang der sich bis heute deutlich im globalen
+      value: "Stimmt!\nDas ist ein Zusammenhang der sich bis heute deutlich im globalen
         Gef\xE4lle bemerkbar macht. Bezogen auf die Geburtenrate spielen nicht zuletzt
-        auch wirtschaftliche Faktoren eine Rolle, da L\xE4nder des globalen S\xFCden
+        auch wirtschaftliche Faktoren eine Rolle, da L\xE4nder des globalen S\xFCdens
         stark auf die Landwirtschaft und Rohstoffe angewiesen sind und daher oft
         eine h\xF6here Bev\xF6lkerungsdichte aufweisen."
       objectReference: {fileID: 0}
@@ -20509,7 +21044,7 @@ PrefabInstance:
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}
       propertyPath: button1ListContent.Array.data[13]
-      value: "Ok, das heisst, die L\xE4nder im globalen S\xFCden m\xFCssen einfach
+      value: "Ok, das hei\xDFt, die L\xE4nder im globalen S\xFCden m\xFCssen einfach
         ihre Art zu wirtschaften umstellen?"
       objectReference: {fileID: 0}
     - target: {fileID: 580005255999415938, guid: 88a81022d2810fb4a88437b898f64397,
@@ -20711,6 +21246,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 580005256863783427, guid: 88a81022d2810fb4a88437b898f64397,
+        type: 3}
+      propertyPath: m_NumberOfSteps
+      value: 100000
       objectReference: {fileID: 0}
     - target: {fileID: 580005257110556028, guid: 88a81022d2810fb4a88437b898f64397,
         type: 3}

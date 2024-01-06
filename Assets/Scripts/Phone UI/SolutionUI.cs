@@ -112,22 +112,34 @@ public class SolutionUI : MonoBehaviour
         if (currSet == currRight)
         {
             solution = euAnswers.EuGenau;
+            Debug.Log(euAnswers.EuGenau);
+            Debug.Log("genau");
 
+            Debug.Log("currset" + currSet + " currright" + currRight);
         }
         else if (Mathf.Abs(currSet - currRight) <= 1)
         {
             solution = euAnswers.EuAbweichung;
+            Debug.Log(euAnswers.EuAbweichung);
+            Debug.Log("ähnlich");
 
+            Debug.Log("currset" + currSet + " currright" + currRight);
         }
-        else if (currSet - currRight <= 2)
+        else if (currSet - currRight < 2)
         {
             solution = euAnswers.EuWenig;
+            Debug.Log(euAnswers.EuWenig);
+            Debug.Log(currSet - currRight);
+            Debug.Log("zu wenig");
 
+            Debug.Log("currset" + currSet + " currright" + currRight);
         }
 
         else if (currSet - currRight >= 2)
         {
-
+            Debug.Log(euAnswers.EuZuviel);
+            Debug.Log("zu viel");
+            Debug.Log("currset" + currSet + " currright" + currRight);
             solution = euAnswers.EuZuviel;
         }
         return solution;
@@ -136,7 +148,7 @@ public class SolutionUI : MonoBehaviour
 
     public void AnswerManagerVoidCall(int textBox)
     {
-       // Debug.Log(intA);
+        // Debug.Log(intA);
         if (textBox == 1)
         {
             if (auflösung == false) // Bevor die Auflösung kommt
@@ -164,11 +176,21 @@ public class SolutionUI : MonoBehaviour
             {
                 //  Debug.Log(responses.introOver);
                 if (intA + 1 == responses.introOver)
+                // Erster Dialog bei der Auflösung
                 {
-                    //  Debug.Log("Erster Dialog bei der Auflösung");
-                    // Erster Dialog bei der Auflösung
-                    phoneChat.MenuButtonActive(false);
-                    StartCoroutine(AnswerManagerVoid("prüfen"));
+                    Debug.Log("Erster Dialog bei der Auflösung");
+                    if (LevelManager.instance.noPhone)
+                    {
+                        Debug.Log("ich komme bis hierhin");
+                        StartCoroutine(AnswerManagerVoid("noPhoneSolution"));
+
+                    }
+                    else
+                    {
+                        phoneChat.MenuButtonActive(false);
+                        StartCoroutine(AnswerManagerVoid("prüfen"));
+
+                    }
 
                 }
                 else if (zurLösung == true)
@@ -194,7 +216,7 @@ public class SolutionUI : MonoBehaviour
                     }
                     if (responses.button1ListButton[intA] == "Zeig her!")
                     {
-                        Debug.Log("Zeig her, has heisst dass jetzt die personalisierte");
+                        //Debug.Log("Zeig her, has heisst dass jetzt die personalisierte");
                         StartCoroutine(AnswerManagerVoid("solution"));
 
                         zurLösung = true;
@@ -219,7 +241,7 @@ public class SolutionUI : MonoBehaviour
             {
                 // Hier wird das Handy nach oben geschoben
                 StartCoroutine(AnswerManagerVoid("handyweg"));
-                Debug.Log("zum Spiel");
+                //Debug.Log("zum Spiel");
 
             }
             else if (responses.button2ListButton[intA] == "Nächstes Level" || responses.button2ListButton[intA] == "Dialog Überspringen")
@@ -230,7 +252,7 @@ public class SolutionUI : MonoBehaviour
             }
             else if (responses.button2ListButton[intA] == "Lös auf!")
             {
-                Debug.Log("Zur lösung");
+                //Debug.Log("Zur lösung");
                 // Hier wird das Handy nach oben geschoben
                 StartCoroutine(AnswerManagerVoid("handyweg2"));
                 intA++;
@@ -266,11 +288,9 @@ public class SolutionUI : MonoBehaviour
         }
         if (answertype == "begin2") //fertig
         {
-            //intA--;
-            Debug.Log("Begin");
             intA++;
             phoneChat.SpawnTyping();
-            yield return new WaitForSecondsRealtime(.7f); 
+            yield return new WaitForSecondsRealtime(.7f);
             phoneChat.SpawnTextBox(responses.npcButton1List[intA], false);
             if (SpawnImage())
             {
@@ -281,10 +301,8 @@ public class SolutionUI : MonoBehaviour
             phoneChat.EnableChatBox();
 
         }
-        else if (answertype == "solution") // noch bearbeiten 
+        else if (answertype == "solution")
         {
-            Debug.Log("solution");
-            Debug.Log(intA);
             phoneChat.MovePhoneToLeft();
             yield return new WaitForSecondsRealtime(1.2f);
 
@@ -295,7 +313,7 @@ public class SolutionUI : MonoBehaviour
             phoneChat.SpawnTyping();
             yield return new WaitForSecondsRealtime(.7f);
             phoneChat.SpawnTextBox(WriteEuropeSolution(), false);
-            Debug.Log("soltion wird jetzt6 angezeigt");
+            //Debug.Log("soltion wird jetzt6 angezeigt");
             yield return new WaitForSecondsRealtime(.7f);
             phoneChat.EnableChatBox();
             LevelManager.instance.UpdateNextLevel(FindObjectOfType<LevelUpdate>().level + 1);
@@ -303,8 +321,7 @@ public class SolutionUI : MonoBehaviour
         }
         else if (answertype == "solution2") // noch bearbeiten 
         {
-            // phoneChat.TypePlayerChat(responses.button1ListContent[intA - 1]);
-            //yield return new WaitForSecondsRealtime(.7f);
+
             phoneChat.SpawnTyping();
             yield return new WaitForSecondsRealtime(.7f);
             phoneChat.SpawnTextBox(WriteEuropeSolution(), false);
@@ -388,7 +405,7 @@ public class SolutionUI : MonoBehaviour
         }
         else if (answertype == "handyweg")
         {
-            Debug.Log("handyweg");
+            //Debug.Log("handyweg");
             phoneChat.TypePlayerChat(responses.button2ListContent[intA]);
             yield return new WaitForSecondsRealtime(.7f);
             phoneChat.SpawnTyping();
@@ -408,7 +425,7 @@ public class SolutionUI : MonoBehaviour
         }
         else if (answertype == "handyweg2")
         {
-            Debug.Log("handyweg2");
+            //Debug.Log("handyweg2");
 
             phoneChat.TypePlayerChat(responses.button2ListContent[intA - 1]);
             phoneChat.SolutionScreen();
@@ -434,9 +451,35 @@ public class SolutionUI : MonoBehaviour
             //  intA++;
 
         }
+        else if (answertype == "noPhoneSolution")
+        {
+            Debug.Log("no phone no colution");
+            phoneChat.SolutionScreen();
+            phoneChat.MenuButtonActive(false);
+            //phoneChat.TypePlayerChat(responses.button2ListContent[intA - 1]);
+            //phoneChat.SolutionScreen();
+
+            //yield return new WaitForSecondsRealtime(.7f);
+            //phoneChat.SpawnTyping();
+            //yield return new WaitForSecondsRealtime(.7f);
+            //phoneChat.SpawnTextBox(responses.npcButton2List[2], false);
+            //yield return new WaitForSecondsRealtime(.6f);
+            lösung = true;
+            GameObject.FindObjectOfType<LevelUpdate>().UpdateRightSlots();
+            yield return new WaitForSecondsRealtime(6.6f);
+            phoneChat.MenuButtonActive(true);
+
+            LevelManager.instance.UpdateNextLevel(FindObjectOfType<LevelUpdate>().level + 1);
+
+            //phoneChat.OnClickHidePhone();
+            //yield return new WaitForSecondsRealtime(1.2f);
+            //phoneChat.EnableChatBox();
+            //yield return new WaitForSecondsRealtime(7.6f);
+
+        }
         else if (answertype == "nextlvl")
         {
-            Debug.Log("Alle Nachrichten, die noch nicht reingestellt wurden kommen hier dann schnell");
+            //Debug.Log("Alle Nachrichten, die noch nicht reingestellt wurden kommen hier dann schnell");
             phoneChat.TypePlayerChat(responses.button2ListContent[intA]);
             yield return new WaitForSecondsRealtime(.7f);
             phoneChat.SpawnTyping();
@@ -462,7 +505,7 @@ public class SolutionUI : MonoBehaviour
             //}
             yield return new WaitForSecondsRealtime(.8f);
 
-         //   LevelManager.instance.UpdateNextLevel(FindObjectOfType<LevelUpdate>().level+1);
+            //   LevelManager.instance.UpdateNextLevel(FindObjectOfType<LevelUpdate>().level+1);
             LevelManager.instance.OpenNextLevel(gameObject.transform.parent.GetComponent<LevelUpdate>().level + 1);
             Debug.Log(gameObject.transform.parent.GetComponent<LevelUpdate>().level + 1);
         }

@@ -16,11 +16,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] List<bool> levelOpen = new List<bool>();
 
     [SerializeField] GameObject fadeBlack;
+    [SerializeField] CanvasGroup waves;
 
     public List<List<int>> previousLevelSlots = new List<List<int>>();
 
 
-
+    public bool noPhone;
     public static LevelManager instance;
     public static LevelManager Instance { get { return instance; } }
 
@@ -29,7 +30,14 @@ public class LevelManager : MonoBehaviour
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
-
+        if (PlayerPrefs.GetInt("Chat") == 0)
+        {
+            noPhone = false;
+        }
+        else
+        {
+            noPhone = true;
+        }
         if (instance != null && instance != this)
         {
             Destroy(this);
@@ -41,11 +49,15 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
+        //LeanTween.alphaCanvas(waves, 0, 0.5f).setEase(LeanTweenType.easeInOutBack);
+        //LeanTween.moveLocalY(waves.gameObject, waves.gameObject.transform.localPosition.y - 100, 0.3f).setEase(LeanTweenType.easeInOutBack);
+
         for (int i = 0; i < level.Count; i++)
         {
             previousLevelSlots.Add(level[i].GetComponent<LevelUpdate>().responses.continentsRightAnswer);
         }
         UpdatButtons(0);
+
     }
 
     public void OpenCurrLevel()
@@ -161,7 +173,7 @@ public class LevelManager : MonoBehaviour
     {
         messageChatBox.enabled = false;
         allMessages.Add(message);
-       // allMessageLengh++;
+        // allMessageLengh++;
     }
 
 

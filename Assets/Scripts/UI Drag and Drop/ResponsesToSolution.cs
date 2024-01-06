@@ -19,7 +19,7 @@ public class ResponsesToSolution : MonoBehaviour
     public List<string> button2ListContent = new List<string>();
 
     [Header("Button 1 NPC")]
-    [Multiline(3)]
+    [Multiline(5)]
 
     public List<string> npcButton1List = new List<string>();
     public List<Texture> images1Button = new List<Texture>();
@@ -28,7 +28,7 @@ public class ResponsesToSolution : MonoBehaviour
 
 
     [Header("Button 2 NPC")]
-    [Multiline(3)]
+    [Multiline(5)]
 
     public List<string> npcButton2List = new List<string>();
     public List<Texture> images2Button = new List<Texture>();

@@ -26,6 +26,7 @@ public class PreviousLevelCount : MonoBehaviour
     }
     IEnumerator LevelUpdateWithDelay(int level1, int level2, int level3, int level4, int currlevel)
     {
+        PhoneChat phoneChat = GameObject.FindObjectOfType<PhoneChat>();
         for (int a = 0; a < level1Bevölkerung.Count; a++)
         {
             rightNumberForMe = level1;
@@ -39,6 +40,8 @@ public class PreviousLevelCount : MonoBehaviour
         yield return new WaitForSecondsRealtime(2f);
         if (currlevel > 1)
         {
+            phoneChat.MenuButtonActive(false);
+            // hier ausmachen
             rightNumberForMe = level2;
             for (int a = 0; a < level1Bevölkerung.Count; a++)
             {
@@ -109,6 +112,12 @@ public class PreviousLevelCount : MonoBehaviour
 
                 }
             }
+            yield return new WaitForSecondsRealtime(.1f);
+
+            // hier anmachen
+            //phoneChat.MenuButtonActive(true);
+            LevelManager.instance.GetComponent<BrickMenuActivate>().SetMenuActiveIfComplete();
+
 
         }
     }
@@ -118,7 +127,16 @@ public class PreviousLevelCount : MonoBehaviour
     }
     IEnumerator CorrektAnswerDelay()
     {
+        if (LevelManager.instance.noPhone)
+        {
+            yield return new WaitForSecondsRealtime(.8f);
+
+        }
+        else
+        {
         yield return new WaitForSecondsRealtime(2.7f);
+
+        }
 
         for (int i = 0; i < rightAnswers.transform.childCount; i++)
         {

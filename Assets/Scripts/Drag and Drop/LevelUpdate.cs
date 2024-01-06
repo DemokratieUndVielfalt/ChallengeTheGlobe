@@ -38,6 +38,7 @@ public class LevelUpdate : MonoBehaviour
         foreach (PreviousLevelCount lvl in levelCounts)
         {
             lvl.CorrektAnswer();
+            Debug.Log("1");
         }
     }
     public void OnClickOpenMainMenu()
